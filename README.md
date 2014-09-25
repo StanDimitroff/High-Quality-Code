@@ -1,4 +1,4 @@
 High-Quality-Code
 =================
 
-Homeworks and contests
+Solutions of homeworks's and contests's problems
