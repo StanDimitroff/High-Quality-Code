@@ -2,6 +2,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
+/**
+ * Creates the snake body from squares.
+ */
 public class Snake {
     LinkedList<Square> snakeBody = new LinkedList<Square>();
     private Color snakeColor;
@@ -24,12 +27,20 @@ public class Snake {
         this.velocityY = 0;
     }
 
+    /**
+     * Draws the snake square by square.
+     *
+     * @param graph Graphics instance.
+     */
     public void drawSnake(Graphics graph) {
         for (Square square : this.snakeBody) {
             square.drawSquare(graph, this.snakeColor);
         }
     }
 
+    /**
+     * Provides movement and growing the snake.
+     */
     public void move() {
         Square current = new Square((this.snakeBody.get(0).getX() + this.velocityX), (this.snakeBody.get(0).getY() + this.velocityY));
 
