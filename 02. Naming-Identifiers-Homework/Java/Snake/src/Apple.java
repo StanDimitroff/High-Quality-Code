@@ -3,33 +3,33 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Apple {
-	public static Random randomGenerator;
-	private Point apple;
-	private Color snakeColor;
+    public static Random randomGenerator;
+    private Square apple;
+    private Color appleColor;
 
     public Apple(Snake snake) {
-		apple = createApple(snake);
-		snakeColor = Color.RED;
-	}
+        apple = createApple(snake);
+        appleColor = Color.RED;
+    }
 
-	private Point createApple(Snake snake) {
-		randomGenerator = new Random();
-		int x = randomGenerator.nextInt(30) * 20;
-		int y = randomGenerator.nextInt(30) * 20;
-		for (Point snakePoint : snake.snakeBody) {
-			if (x == snakePoint.getX() || y == snakePoint.getY()) {
-				return createApple(snake);
-			}
-		}
-        
-		return new Point(x, y);
-	}
+    private Square createApple(Snake snake) {
+        randomGenerator = new Random();
+        int x = randomGenerator.nextInt(30) * 20;
+        int y = randomGenerator.nextInt(30) * 20;
+        for (Square snakeSquare : snake.snakeBody) {
+            if (x == snakeSquare.getX() || y == snakeSquare.getY()) {
+                return createApple(snake);
+            }
+        }
 
-	public void drawApple(Graphics graph){
-		apple.drawSnake(graph, snakeColor);
-	}	
-	
-	public Point getPoint(){
-		return apple;
-	}
+        return new Square(x, y);
+    }
+
+    public void drawApple(Graphics graph) {
+        apple.drawSquare(graph, appleColor);
+    }
+
+    public Square getSquare() {
+        return apple;
+    }
 }

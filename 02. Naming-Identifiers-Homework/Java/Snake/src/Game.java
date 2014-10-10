@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 @SuppressWarnings("serial")
+
 public class Game extends Canvas implements Runnable {
     public static Snake snake;
     public static Apple apple;
@@ -30,11 +31,12 @@ public class Game extends Canvas implements Runnable {
 
     public void run() {
         while (gameRunning) {
-            snake.tick();
+            snake.move();
             render(globalGraphics);
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
+                run();
             }
         }
     }

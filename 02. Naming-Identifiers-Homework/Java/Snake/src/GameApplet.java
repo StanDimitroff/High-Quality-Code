@@ -3,9 +3,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 @SuppressWarnings("serial")
+
 public class GameApplet extends Applet {
     private Game game;
-    KeyHandler IH;
+    KeyHandler handler;
 
     public void init() {
         game = new Game();
@@ -15,7 +16,7 @@ public class GameApplet extends Applet {
         this.add(game);
         this.setVisible(true);
         this.setSize(new Dimension(800, 650));
-        IH = new KeyHandler(game);
+        handler = new KeyHandler(game);
     }
 
     public void paint(Graphics graph) {
